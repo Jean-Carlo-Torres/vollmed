@@ -1,4 +1,4 @@
-package med.voll.api.domain.usuario;
+package med.voll.api.domain.consulta;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

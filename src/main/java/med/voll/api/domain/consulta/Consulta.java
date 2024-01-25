@@ -1,4 +1,4 @@
-package med.voll.api.domain.usuario;
+package med.voll.api.domain.consulta;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,4 +32,12 @@ public class Consulta {
 
     private LocalDateTime data;
 
+    public Consulta(){}
+
+    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime data) {
+        this.id = id;
+        this.medico = medico;
+        this.paciente = paciente;
+        this.data = data;
+    }
 }
