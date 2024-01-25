@@ -15,7 +15,7 @@ import med.voll.api.domain.endereco.Endereco;
 @EqualsAndHashCode(of = "id")
 public class Paciente {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 

@@ -23,7 +23,7 @@ public class PacienteController {
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriBuilder){
         var paciente = new Paciente(dados);
         repositorio.save(paciente);
-        var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(paciente.getId()).toUri();
+        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
 
         return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
     }
