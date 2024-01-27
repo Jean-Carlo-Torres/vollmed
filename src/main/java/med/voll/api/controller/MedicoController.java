@@ -1,5 +1,7 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     @Autowired
@@ -20,6 +23,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
+    @Operation(summary = "Cadastrar um novo médico", description = "Este endpoint cadastra um novo médico com base nos dados fornecidos.")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder){
         var medico = new Medico(dados);
         repositorio.save(medico);
@@ -29,6 +33,7 @@ public class MedicoController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar médicos ativos", description = "Este endpoint retorna uma lista paginada de médicos ativos.")
     public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
         var page =  repositorio.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
 
@@ -37,6 +42,7 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
+    @Operation(summary = "Atualizar informações do médico", description = "Este endpoint atualiza as informações de um médico com base nos dados fornecidos.")
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualiazadosMedico dados){
         var medico = repositorio.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
@@ -46,6 +52,7 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @Operation(summary = "Excluir médico", description = "Este endpoint exclui um médico com base no ID fornecido.")
     public ResponseEntity excluir(@PathVariable Long id){
         var medico = repositorio.getReferenceById(id);
         medico.excluir();
@@ -55,6 +62,7 @@ public class MedicoController {
 
     @GetMapping("/{id}")
     @Transactional
+    @Operation(summary = "Detalhar médico", description = "Este endpoint retorna as informações de um médico com base no ID fornecido.")
     public ResponseEntity detalhar(@PathVariable Long id){
         var medico = repositorio.getReferenceById(id);
 

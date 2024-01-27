@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import med.voll.api.domain.usuario.DadosAutenticacao;
 import med.voll.api.domain.usuario.Usuario;
@@ -25,6 +26,7 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping
+    @Operation(summary = "Efetuar login para ter acesso as requisições", description = "Este endpoint realiza a autenticação do usuário e gera um token JWT para acesso.")
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados){
         var authenticationtoken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var authentication = manager.authenticate(authenticationtoken);
