@@ -1,14 +1,6 @@
-<div style="display: flex; align-items: center;">
-    <img src="./github/logo.png" style="width: 80px; height: 100px; margin-right: 20px;">
-    <div>
-        <h2>VOLL.MED - Sistema de Clínica Médica com Spring Boot</h2>
-        <p>API Rest, contendo as funcionalidades de CRUD de médicos e de pacientes, além de agendamento e cancelamento de consultas</p>
-    </div>
-</div>
-
-<img src="./github/projeto.png">
-
-* Layout mobile da aplicação, utilizada de exemplo para a criação da API <a hrf="https://www.figma.com/file/N4CgpJqsg7gjbKuDmra3EV/Voll.med">layout</a>
+ # VOLL.MED - Sistema de Clínica Médica com Spring Boot      
+API Rest, contendo as funcionalidades de CRUD de médicos e de pacientes, além de agendamento e cancelamento de consultas
+<br>
 
 # API de Clínica Médica
 
@@ -136,7 +128,15 @@ A API foi desenvolvida utilizando tecnologias robustas para garantir eficiência
 ````
 Essas tecnologias combinadas formam uma base sólida para a API de Clínica Médica, garantindo um sistema eficiente, seguro e bem documentado.
 ````
+<hr>
 
+## Sobre o projeto
+
+Projeto realizado durante a **Formação Java e Spring Boot** da **Alura**
+
+<img src="./github/projeto.png">
+
+* Layout mobile da aplicação, utilizada de exemplo para a criação da API <a hrf="https://www.figma.com/file/N4CgpJqsg7gjbKuDmra3EV/Voll.med">layout</a>
 <hr>
 
 ### Contribuições
